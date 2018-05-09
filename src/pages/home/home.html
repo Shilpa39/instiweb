@@ -7,8 +7,15 @@
 </ion-header>
 
 <ion-content padding>
+
   The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<br><br>
+<ion-card *ngFor="let std of stdlist">
+<ion-thumbnail item-center>
+<img data-src="{{std[3]}}" width="40%" height="30%">
+</ion-thumbnail>
+<br>
+<h4 text-center>Name: {{std[1]}}</h4>
+<h4 text-center>Roll no: {{std[0]}}</h4>
+</ion-card>
 </ion-content>

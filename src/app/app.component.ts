@@ -8,7 +8,10 @@ import { HomePage } from '../pages/home/home';
   templateUrl: 'app.html'
 })
 export class MyApp {
+//After that use "/api/" instead of "https://mywebsite.com/api" when you call your api.
   rootPage:any = HomePage;
+
+  content:any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -16,7 +19,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-    });
+
+      }
+    );
   }
 }
-

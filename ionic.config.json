@@ -1,5 +1,12 @@
 {
-  "name": "instiweb",
+  "name": "MyApp",
   "app_id": "",
+  "proxies": [
+    {
+      "path": "/studentsapp/studentlist",
+      "proxyUrl": "http://students.iitm.ac.in/studentsapp/studentlist"
+    }
+  ],
+  "integrations": {},
   "type": "ionic-angular"
 }
