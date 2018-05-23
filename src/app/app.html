@@ -1,1 +1,37 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-toolbar>
+<button ion-button menuToggle mycontent>
+    <ion-icon name="menu"></ion-icon>
+</button>
+    <ion-title>
+      {{presentpage}}
+    </ion-title>
+    <ion-buttons end>
+<a ion-button icon-only (click)="openPopover($event)"><ion-icon style="color:blue;" name="more"></ion-icon></a>
+</ion-buttons>
+</ion-toolbar>
+
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list no-lines>
+    <ion-item>
+    <ion-avatar item-start>
+      <img src="../assets/imgs/logo.png">
+    </ion-avatar><br>
+    <h2>SHILPA N</h2>
+    <p>EE16B039</p>	
+    </ion-item>
+      <button menuClose ion-item *ngFor="let page of pages" [style.color] = "(page.name==presentpage) ? '#0099ee' : 'black'" [style.background-color] = "(page.name==presentpage) ? '#bbbbbb' : 'white'" (click)="openpage(page.page,page.name)" full>
+        <ion-icon item-start name="{{page.icon}}"></ion-icon><span>{{page.name}}</span>
+      </button>
+      <h5 style="border-top:1px solid gray;color:gray;padding:10px"> Options</h5>
+     <button menuClose ion-item *ngFor="let option of options" [style.color] = "(option.name==presentpage) ? '#0099ee' : 'black'" [style.background-color] = "(option.name==presentpage) ? '#bbbbbb' : 'white'" (click)="openpage(option.page,option.name)" full>
+        <ion-icon item-start name="{{option.icon}}"></ion-icon><span>{{option.name}}</span>
+      </button>
+      <button menuClose ion-item >
+        <ion-icon item-start name="log-out"></ion-icon><span>Log Out</span>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

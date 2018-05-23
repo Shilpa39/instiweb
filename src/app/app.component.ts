@@ -1,26 +1,67 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { NavController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
+import { PopoverContentPage } from '../app/popover';
 
-import { HomePage } from '../pages/home/home';
+import { NotifPage } from '../pages/notif/notif';
+import { OrgPage } from '../pages/organisations/org';
+import { StdsearchPage } from '../pages/stdsearch/stdsearch';
+import { MapPage } from '../pages/instimap/map';
+import { CalendarPage } from '../pages/calendar/calendar';
+import { TimetablePage } from '../pages/timetable/timetable';
+import { ImpcontactsPage } from '../pages/impcontacts/impcontacts';
+import { ComplaintPage } from '../pages/complaintbox/complaint';
+import { ProfilePage } from '../pages/profile/profile';
+import { SubsPage } from '../pages/subscriptions/subs';
+import { AboutusPage } from '../pages/aboutus/aboutus';
+
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-//After that use "/api/" instead of "https://mywebsite.com/api" when you call your api.
-  rootPage:any = HomePage;
 
-  content:any;
+  rootPage:any = NotifPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+  pages=[
+  {page:NotifPage,name:'Notifications',icon:'home'},
+  {page:OrgPage,name:'Organizations',icon:'people'},
+  {page:StdsearchPage,name:'Student Search',icon:'search'},
+  {page:MapPage,name:'Insti Map',icon:'map'},
+  {page:CalendarPage,name:'Calendar',icon:'calendar'},
+  {page:TimetablePage,name:'Time Table',icon:'school'},
+  {page:ImpcontactsPage,name:'Important Contacts',icon:'contacts'},
+  {page:ComplaintPage,name:'Complaint Box',icon:'chatboxes'}];
+  
+  options=[
+  {page:ProfilePage,name:'Profile',icon:'person'},
+  {page:SubsPage,name:'Subscriptions',icon:'paper'},
+  {page:AboutusPage,name:'About Us',icon:'information-circle'}
+  ];
 
-      }
-    );
+  @ViewChild('mycontent') nav: NavController;
+
+  presentpage='Notifications';
+  
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public popoverCtrl: PopoverController) {
   }
+
+openpage(inp:any,naam:string)
+{
+  this.nav.push(inp);
+  this.presentpage=naam;
+}
+
+openPopover(myEvent) 
+  {
+    let popover = this.popoverCtrl.create(PopoverContentPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
 }
