@@ -45,10 +45,14 @@ export class MyApp {
   @ViewChild('mycontent') nav: NavController;
 
   presentpage='Notifications';
+  theme:any;
   
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public popoverCtrl: PopoverController) {
+    this.theme='#006677'
   }
+
+
 
 openpage(inp:any,naam:string)
 {

@@ -1,30 +1,34 @@
+<ion-header >
 <ion-toolbar>
-<button ion-button menuToggle mycontent>
+<button ion-button menuToggle mycontent [ngStyle]="{'color':'white','background-color':theme}">
     <ion-icon name="menu"></ion-icon>
 </button>
-    <ion-title>
-      {{presentpage}}
+    <ion-title [ngStyle]="{'color':'white','background-color':theme}">
+      <span [ngStyle]="{'color':'white','background-color':theme}">{{presentpage}}</span>
     </ion-title>
-    <ion-buttons end>
-<a ion-button icon-only (click)="openPopover($event)"><ion-icon style="color:blue;" name="more"></ion-icon></a>
+    <ion-buttons end >
+<a ion-button icon-only (click)="openPopover($event)" [ngStyle]="{'color':'white','background-color':theme}"><ion-icon name="more"></ion-icon></a>
 </ion-buttons>
 </ion-toolbar>
+</ion-header>
 
-<ion-menu [content]="mycontent">
+<ion-menu [content]="mycontent" type="overlay">
   <ion-content>
     <ion-list no-lines>
-    <ion-item>
+    <ion-item [ngStyle]="{'color':'white','background-color':theme}" >
+    <ion-item style="padding:10px;background-color:transparent;">
     <ion-avatar item-start>
       <img src="../assets/imgs/logo.png">
-    </ion-avatar><br>
-    <h2>SHILPA N</h2>
-    <p>EE16B039</p>	
+    </ion-avatar>
     </ion-item>
-      <button menuClose ion-item *ngFor="let page of pages" [style.color] = "(page.name==presentpage) ? '#0099ee' : 'black'" [style.background-color] = "(page.name==presentpage) ? '#bbbbbb' : 'white'" (click)="openpage(page.page,page.name)" full>
+    <h2>SHILPA N</h2>
+    <p style="color:white;">EE16B039</p><br>
+    </ion-item><br>
+      <button menuClose ion-item *ngFor="let page of pages" [style.color] = "(page.name==presentpage) ? theme : 'black'" [style.background-color] = "(page.name==presentpage) ? '#cccccc' : 'white'" (click)="openpage(page.page,page.name)" full>
         <ion-icon item-start name="{{page.icon}}"></ion-icon><span>{{page.name}}</span>
       </button>
       <h5 style="border-top:1px solid gray;color:gray;padding:10px"> Options</h5>
-     <button menuClose ion-item *ngFor="let option of options" [style.color] = "(option.name==presentpage) ? '#0099ee' : 'black'" [style.background-color] = "(option.name==presentpage) ? '#bbbbbb' : 'white'" (click)="openpage(option.page,option.name)" full>
+     <button menuClose ion-item *ngFor="let option of options" [style.color] = "(option.name==presentpage) ? theme : 'black'" [style.background-color] = "(option.name==presentpage) ? '#cccccc' : 'white'" (click)="openpage(option.page,option.name)" full>
         <ion-icon item-start name="{{option.icon}}"></ion-icon><span>{{option.name}}</span>
       </button>
       <button menuClose ion-item >

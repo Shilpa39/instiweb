@@ -5,8 +5,8 @@ import { AboutusPage } from '../pages/aboutus/aboutus';
 
 @Component({
   template: `
-      <button ion-item (click)="openabout()">About</button>
-      <button ion-item >Log out</button>
+      <button ion-item full (click)="openabout()">About</button>
+      <button ion-item full >Log out</button>
 `
 })
 
