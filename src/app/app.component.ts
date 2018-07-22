@@ -26,20 +26,30 @@ export class MyApp {
 
   rootPage:any = NotifPage;
 
-  pages=[
-  {page:NotifPage,name:'Notifications',icon:'home'},
-  {page:OrgPage,name:'Organizations',icon:'people'},
+  pages=
+  [
+  {page:NotifPage,name:'Notifications',icon:'ios-notifications'},
+  //{page:OrgPage,name:'Organizations',icon:'people'},
   {page:StdsearchPage,name:'Student Search',icon:'search'},
   {page:MapPage,name:'Insti Map',icon:'map'},
   {page:CalendarPage,name:'Calendar',icon:'calendar'},
   {page:TimetablePage,name:'Time Table',icon:'school'},
   {page:ImpcontactsPage,name:'Important Contacts',icon:'contacts'},
-  {page:ComplaintPage,name:'Complaint Box',icon:'chatboxes'}];
+  {page:ComplaintPage,name:'Complaint Box',icon:'chatboxes'}
+  ];
   
-  options=[
+  options=
+  [
   {page:ProfilePage,name:'Profile',icon:'person'},
-  {page:SubsPage,name:'Subscriptions',icon:'paper'},
+  //{page:SubsPage,name:'Subscriptions',icon:'paper'},
   {page:AboutusPage,name:'About Us',icon:'information-circle'}
+  ];
+
+  bottomtabs=
+  [
+  {page:NotifPage,name:'Notifications',icon:'home'},
+  {page:OrgPage,name:'Organizations',icon:'people'},
+  {page:SubsPage,name:'Subscriptions',icon:'paper'},
   ];
 
   @ViewChild('mycontent') nav: NavController;
@@ -49,7 +59,7 @@ export class MyApp {
   
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public popoverCtrl: PopoverController) {
-    this.theme='#006677'
+    this.theme='green'
   }
 
 
@@ -59,6 +69,8 @@ openpage(inp:any,naam:string)
   this.nav.push(inp);
   this.presentpage=naam;
 }
+
+
 
 openPopover(myEvent) 
   {

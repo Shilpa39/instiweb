@@ -1,15 +1,17 @@
 <ion-header >
-<ion-toolbar>
+<ion-navbar>
 <button ion-button menuToggle mycontent [ngStyle]="{'color':'white','background-color':theme}">
     <ion-icon name="menu"></ion-icon>
 </button>
-    <ion-title [ngStyle]="{'color':'white','background-color':theme}">
-      <span [ngStyle]="{'color':'white','background-color':theme}">{{presentpage}}</span>
-    </ion-title>
+<ion-title [ngStyle]="{'color':'white','background-color':theme}">
+<span [ngStyle]="{'color':'white','background-color':theme}">
+{{presentpage}}
+</span>
+</ion-title>
     <ion-buttons end >
 <a ion-button icon-only (click)="openPopover($event)" [ngStyle]="{'color':'white','background-color':theme}"><ion-icon name="more"></ion-icon></a>
 </ion-buttons>
-</ion-toolbar>
+</ion-navbar>
 </ion-header>
 
 <ion-menu [content]="mycontent" type="overlay">
@@ -38,4 +40,22 @@
   </ion-content>
 
 </ion-menu>
+<ion-footer style="column-count: 3;" 
+[ngStyle]="{'color':'white','background-color':theme}">
+          <ion-item [ngStyle]="{'color':'white','background-color':theme}" 
+          *ngFor="let btab of bottomtabs" text-center (click)="openpage(btab.page,btab.name)">
+          <ion-icon name="{{btab.icon}}"></ion-icon>
+          <p [ngStyle]="{'color':'white'}">{{btab.name}}</p>
+          </ion-item>
+</ion-footer>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
+<!--
+<ion-tabs selectedIndex="0" >
+  <ion-tab *ngFor="let btab of bottomtabs"  [root]="btab.page"   [ngStyle]="{'color':'white','background-color':theme}" tabTitle="{{btab.name}}" tabIcon="{{btab.icon}}">
+  <ion-icon name="{{btab.icon}}" (click)="openpage(btab.page,btab.name)"></ion-icon>
+  </ion-tab>
+</ion-tabs>-->
+
+<!--
+(click)="openpage(btab.page,btab.name)"
+  -->

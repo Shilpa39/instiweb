@@ -1,0 +1,35 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Student Info
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="secondary" showWhen="ios" [ngStyle]="{'color':'black'}">Back</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-card [ngStyle]="{'color':'white','background-color':theme}" padding >
+
+<br>
+<h1 text-center>{{stdRollno}}</h1><br>
+<ion-thumbnail>
+<img style="float:center;" [src]=imageURL>
+</ion-thumbnail><br>
+<h2 text-center>{{name}}</h2>
+<h3 text-center>{{room_no}},{{hostel}}</h3>
+<br><br>
+<h2 text-center>{{mailid+"  "}}  
+<a href="mailto:{{mailid}}" [ngStyle]="{'color':'white'}"><ion-icon name="ios-send"></ion-icon></a>
+</h2>
+
+</ion-card>
+
+</ion-content>
+

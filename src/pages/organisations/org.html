@@ -7,4 +7,15 @@
 </ion-header>
 
 <ion-content padding>
+
+<ion-card *ngFor="let org of orgs">
+	<ion-item (click)=OrgOpen(org.name)>
+		<ion-thumbnail item-start>
+		<img  src={{org.imageURL}}>
+		</ion-thumbnail>
+		<h2><b>{{org.name}}</b></h2>
+		<p style="overflow:visible;">{{org.details}}</p>
+	</ion-item>
+</ion-card>
+
 </ion-content>

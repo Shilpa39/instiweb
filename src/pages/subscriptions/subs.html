@@ -7,4 +7,13 @@
 </ion-header>
 
 <ion-content padding>
+	<ion-item>
+  	<ion-label>General</ion-label>
+  	<ion-toggle disabled color="secondary" checked="true"></ion-toggle>
+	</ion-item>
+	<ion-item *ngFor="let sub of subs" (click)="SubscribeTo(sub.name)">
+  	<ion-label>{{sub.name}}</ion-label>
+  	<ion-toggle color="secondary" checked="{{sub.enabled}}"></ion-toggle>
+	</ion-item>
+
 </ion-content>

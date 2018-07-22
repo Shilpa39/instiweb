@@ -7,4 +7,52 @@
 </ion-header>
 
 <ion-content padding>
+<div padding style="height:60%;left:25%;" 
+[ngStyle]="{'color':'white','background-color':theme}">
+<br>
+<div style="left:25%;" text-center>
+<img src="../../assets/imgs/logo.png" style="border-radius:50%;height:50%;width:50%;">
+</div>
+<h1 text-center>Shilpa N</h1>
+<h2 text-center>EE16B039</h2>
+</div>
+<div style="height:40%;">
+<br>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+			Hostel : {{hostel}}
+			</ion-col>
+			<ion-col>
+			Room : {{Room}}
+			</ion-col>
+		</ion-row>
+		<ion-row>
+		<ion-col>
+			<span (click)="phoneClick()" *ngIf="!phoneclick">
+			Contact : {{Phone}}
+			</span>
+			<ion-item *ngIf="phoneclick">
+    		<ion-input type="number" value="{{Phone}}" placeholder="Mobile">
+    		</ion-input>
+    		</ion-item>
+		</ion-col>
+		</ion-row>
+		<ion-row>
+		<ion-col>
+			<span (click)="mailClick()" *ngIf="!mailclick">
+			Email ID : {{Email}}
+			</span>
+			<ion-item *ngIf="mailclick">
+    		<ion-input type="email" value="{{Email}}" placeholder="Email ID"></ion-input>
+    		</ion-item>
+		</ion-col>
+		</ion-row>
+		<ion-row>
+		<ion-col>
+			Mess : {{Mess}}
+		</ion-col>
+		</ion-row>
+	</ion-grid>
+</div>
 </ion-content>

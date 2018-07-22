@@ -9,14 +9,47 @@ import { Platform } from 'ionic-angular';
 })
 export class ImpcontactsPage {
 
-  url:string = '/studentsapp/studentlist/'+'getresultbyroll.php?rollno='+'ee16b'
+contacts_a=[
+	{
+		"name" : "Medical Emergency",
+		"phone" : "04422578888"
+	},
+	{
+		"name" : "Security",
+		"phone" : "04422578888"
+	},
+	{
+		"name" : "Tele counselling",
+		"phone" : "04422575555"
+	},
+	{
+		"name" : "LAN complaints",
+		"phone" : "04422575987"
+	},
+	{
+		"name" : "Electrical Complaints",
+		"phone" : "04422578187"
+	},
+	{
+		"name" : "CCW Office",
+		"phone" : "04422578504"
+	}
+];
 
-  content:any;
-  stdlist=[];
-  numstr="";
-  imag:any;
-  imageToShow: any;
+contacts_e=
+[
+	{
+		"designation" : "Student General Secretary",
+		"name" : "Kompella Kashyap Sriram",
+		"phone" : "",
+		"mail" : "",
+		"photo" : "../../assets/imgs/logo.png"
+	}
+];
 
-  constructor(platform: Platform,private http: Http) {}
+  constructor(platform: Platform,private http: Http) 
+  {
+  	this.contactType="Administrative";
+  }
 
 }

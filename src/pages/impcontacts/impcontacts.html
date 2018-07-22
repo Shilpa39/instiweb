@@ -7,4 +7,50 @@
 </ion-header>
 
 <ion-content padding>
+<div padding>
+  <ion-segment [(ngModel)]="contactType">
+    <ion-segment-button value="Administrative">
+      Administrative
+    </ion-segment-button>
+    <ion-segment-button value="Executive">
+      Executive wing
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="contactType">
+  <ion-list *ngSwitchCase="'Administrative'">
+    <ion-item *ngFor="let contact_a of contacts_a">
+      <span item-start>
+      <h2>{{contact_a.name}}</h2>
+      <p>{{contact_a.phone}}</p>
+      </span>
+      <span item-end>
+      <a href="tel:{{contact_a.phone}}"><ion-icon name="ios-call"></ion-icon></a>
+      </span>
+      <br>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'Executive'">
+    <ion-card *ngFor="let contact_e of contacts_e" padding>
+      <ion-item>
+      <span item-start>
+      <h2>{{contact_e.designation}}</h2><br>
+      <p>{{contact_e.name}}</p><br>
+      <a href="tel:{{contact_e.phone}}"><button ion-button clear>CALL</button></a>
+      <a href="mailto:{{contact_e.mail}}"><button ion-button clear>MAIL</button></a>
+      </span>
+      <ion-thumbnail item-end>
+        <img src={{contact_e.photo}}>
+      </ion-thumbnail>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+
+</div>
 </ion-content>
+
+<!--
+<a href="tel:"+{{contact_a.phone}}> </a>
+-->

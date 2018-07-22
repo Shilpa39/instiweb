@@ -9,14 +9,36 @@ import { Platform } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  url:string = '/studentsapp/studentlist/'+'getresultbyroll.php?rollno='+'ee16b'
+theme:any;
+hostel:string;
+Room:string;
+Phone:number;
+Email:string;
+Mess:string;
+phoneclick:boolean;
+mailclick:boolean;
 
-  content:any;
-  stdlist=[];
-  numstr="";
-  imag:any;
-  imageToShow: any;
+  constructor(platform: Platform,private http: Http) 
+  {
+  	this.theme='green';
+  	this.hostel='SHARAVATHI';
+	this.Room='482';
+	this.Phone=7012903343;
+	this.Email='ee16b039@smail.iitm.ac.in';
+	this.Mess='Annamalai-SI-Vin GF';
+	this.phoneclick=false;
+	this.mailclick=false;
 
-  constructor(platform: Platform,private http: Http) {}
+  }
+
+  phoneClick()
+  {
+  	this.phoneclick=true;
+  }
+
+  mailClick()
+  {
+  	this.mailclick=true;
+  }
 
 }

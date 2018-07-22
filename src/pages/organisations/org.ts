@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Platform } from 'ionic-angular';
+import { OrgIndPage } from '../org_ind/org_ind';
+import { ModalController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-org',
@@ -9,15 +12,18 @@ import { Platform } from 'ionic-angular';
 })
 export class OrgPage {
 
-  url:string = '/studentsapp/studentlist/'+'getresultbyroll.php?rollno='+'ee16b'
+orgs=
+  [
+  {imageURL:'../../assets/imgs/logo.png',name:'Insti Media',details:'blah blah blah'},
+  {imageURL:'../../assets/imgs/logo.png',name:'Media Club at IIT Madras',details:'blah blah blah blah...blah blah blah blah...blah blah blah blah...blah blah blah blah...blah blah blah blah...blah blah blah blah...'}
+  ];
 
-  content:any;
-  stdlist=[];
-  numstr="";
-  imag:any;
-  imageToShow: any;
+  constructor(public modalCtrl: ModalController) {}
 
-  constructor(platform: Platform,private http: Http) {
-    platform.ready().then(() => {});
+  OrgOpen(orgname:string)
+  {
+  	let modal = this.modalCtrl.create(OrgIndPage,{Orgname:orgname});
+    modal.present();
   }
+
 }

@@ -20,6 +20,8 @@ import { ComplaintPage } from '../pages/complaintbox/complaint';
 import { ProfilePage } from '../pages/profile/profile';
 import { SubsPage } from '../pages/subscriptions/subs';
 import { AboutusPage } from '../pages/aboutus/aboutus';
+import { StudentModalPage } from '../pages/student_modal_page/student-modal-page';
+import { OrgIndPage } from '../pages/org_ind/org_ind'
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AboutusPage } from '../pages/aboutus/aboutus';
     ProfilePage,
     SubsPage,
     AboutusPage,
-    PopoverContentPage 
+    PopoverContentPage,
+    StudentModalPage,
+    OrgIndPage 
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,9 @@ import { AboutusPage } from '../pages/aboutus/aboutus';
     ProfilePage,
     SubsPage,
     AboutusPage,
-    PopoverContentPage    
+    PopoverContentPage ,
+    StudentModalPage,
+    OrgIndPage  
   ],
   providers: [
     StatusBar,

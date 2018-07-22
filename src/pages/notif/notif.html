@@ -1,23 +1,38 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Notifications
+       <ion-title>
+       Notifications
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <h1 text-center>EE16 Batch</h1>
-<br><!--
-<ion-card *ngFor="let std of stdlist">
-<ion-thumbnail item-center>
-<img data-src="{{std[3]}}" width="40%" height="30%">
-</ion-thumbnail>
-<br>
-<h4 text-center>Roll no: {{std[0]}}</h4>
-<h4 text-center>Name: {{std[1]}}</h4><br>
-<h4 text-center><a href="{{std[2]}}">Click for image</a></h4>
-<br>
-</ion-card>-->
+<ion-card *ngFor="let event of events"> 
+  <ion-item>
+    <ion-avatar item-start>
+      <img src={{event.content}}>
+    </ion-avatar>
+    <h2>{{event.organisation}}</h2>
+    <p>{{event.type}}</p>
+  </ion-item>
+  <br>
+
+  <h1 padding>{{event.heading}}</h1>
+  <div>
+  	<img src={{event.content}}>
+  </div>
+  <br>
+  <div>
+  	<span style="float:left;">
+  		<button ion-button clear (click)="StarIt()">
+  		<ion-icon name={{starred}} [ngStyle]="{'color':starColor}"></ion-icon>
+  		</button>
+  	</span>
+  	<span style="float:right;">
+  		<button ion-button clear>SHARE</button>
+  	</span>
+  </div>
+</ion-card>
+
 </ion-content>

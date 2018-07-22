@@ -7,4 +7,20 @@
 </ion-header>
 
 <ion-content padding>
+<!--(ionInput)="getItems($event)"
+   <link rel="stylesheet" href="stdsearch.css">
+-->
+<ion-searchbar *ngIf="!show"></ion-searchbar>
+<ion-list *ngIf="!show">
+  <ion-item *ngFor="let std of stdlist" >
+    <span (click)="showImage(std[0])">
+    <span style="float:left;">{{std[0]}}</span>
+    <span style="float:right;">{{std[1]}}</span>
+    </span>
+  </ion-item>
+</ion-list>
+
+
+<br>
+
 </ion-content>

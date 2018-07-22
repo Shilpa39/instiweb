@@ -9,14 +9,23 @@ import { Platform } from 'ionic-angular';
 })
 export class SubsPage {
 
-  url:string = '/studentsapp/studentlist/'+'getresultbyroll.php?rollno='+'ee16b'
-
-  content:any;
-  stdlist=[];
-  numstr="";
-  imag:any;
-  imageToShow: any;
+  subs=
+  [
+  {name:'Extra Mural Lectures',enabled:true},
+  {name:'Extra Mural Lectures',enabled:true},
+  {name:'Extra Mural Lectures',enabled:true},
+  {name:'Extra Mural Lectures',enabled:true},
+  {name:'Extra Mural Lectures',enabled:true},
+  {name:'Extra Mural Lectures',enabled:true},
+  {name:'Extra Mural Lectures',enabled:true},
+  {name:'Extra Mural Lectures',enabled:true},
+  ];
 
   constructor(platform: Platform,private http: Http) {}
+
+SubscribeTo(subName:string)
+{
+	
+}
 
 }
