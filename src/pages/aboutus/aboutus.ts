@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController ,ViewController} from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Platform } from 'ionic-angular';
 
@@ -9,8 +9,18 @@ import { Platform } from 'ionic-angular';
 })
 export class AboutusPage {
 
-  constructor(platform: Platform,private http: Http) {
-    platform.ready().then(() => {});
+theme:any;
+
+  constructor(platform: Platform,private http: Http,public viewCtrl: ViewController) {
+    platform.ready().then(() => {
+
+    	this.theme='green';
+    });
+  }
+
+  dismiss() 
+  {
+    this.viewCtrl.dismiss();
   }
 
 }

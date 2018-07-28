@@ -9,14 +9,9 @@ import { Platform } from 'ionic-angular';
 })
 export class CalendarPage {
 
-  url:string = '/studentsapp/studentlist/'+'getresultbyroll.php?rollno='+'ee16b'
 
-  content:any;
-  stdlist=[];
-  numstr="";
-  imag:any;
-  imageToShow: any;
-
-  constructor(platform: Platform,private http: Http) {}
+  constructor(platform: Platform,private http: Http) 
+  {
+  }
 
 }

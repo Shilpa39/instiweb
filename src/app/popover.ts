@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+//import { NavController } from 'ionic-angular';
 import { AboutusPage } from '../pages/aboutus/aboutus';
+import { ModalController } from 'ionic-angular';
 
 
 @Component({
@@ -11,11 +12,12 @@ import { AboutusPage } from '../pages/aboutus/aboutus';
 })
 
 export class PopoverContentPage {
-constructor(public navCtrl: NavController) {}
+constructor(public modalCtrl: ModalController) {}
 
 openabout()
 {
-	this.navCtrl.push(AboutusPage);
+	let modal = this.modalCtrl.create(AboutusPage);
+    modal.present();
 }
 
 }

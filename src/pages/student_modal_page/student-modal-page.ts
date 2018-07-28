@@ -42,6 +42,7 @@ constructor(
           this.room_no=this.data_particular[0].roomno;
           this.hostel=this.data_particular[0].hostel;
           this.mailid=this.rollno+'@smail.iitm.ac.in';
+          console.log(this.imageURL);
           console.log("last of showImage");
        });
   }

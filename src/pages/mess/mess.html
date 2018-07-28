@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mess Menu
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-slides>
+  <ion-slide *ngFor='let mess of messes;let i = index;'>
+    <h2 text-center>Mess {{i+1}}</h2>
+      <br>
+    <div *ngFor='let day of mess;let k=index;'>
+    <h3 text-center [ngStyle]="{'color':'white','background-color':theme}">
+    {{Days[k%7]}}</h3>
+      <div *ngFor='let food of day;let j=index'>
+      <h4>{{foodtypes[j%3]}}</h4>
+          <p text-center *ngFor="let item of food">
+          {{item}}
+          </p>
+          <hr style="border-width: 1px;" *ngIf="(j%3!=2)">
+      </div>
+    </div>
+    <br><br>
+    </ion-slide>
+</ion-slides> 
+
+</ion-content>

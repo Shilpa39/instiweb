@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { NavController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { PopoverContentPage } from '../app/popover';
+import { ModalController } from 'ionic-angular';
 
 import { NotifPage } from '../pages/notif/notif';
 import { OrgPage } from '../pages/organisations/org';
@@ -17,6 +18,7 @@ import { ComplaintPage } from '../pages/complaintbox/complaint';
 import { ProfilePage } from '../pages/profile/profile';
 import { SubsPage } from '../pages/subscriptions/subs';
 import { AboutusPage } from '../pages/aboutus/aboutus';
+import { MessPage } from '../pages/mess/mess';
 
 
 @Component({
@@ -31,6 +33,7 @@ export class MyApp {
   {page:NotifPage,name:'Notifications',icon:'ios-notifications'},
   //{page:OrgPage,name:'Organizations',icon:'people'},
   {page:StdsearchPage,name:'Student Search',icon:'search'},
+  {page:MessPage,name:'Mess Menu',icon:'ios-restaurant'},
   {page:MapPage,name:'Insti Map',icon:'map'},
   {page:CalendarPage,name:'Calendar',icon:'calendar'},
   {page:TimetablePage,name:'Time Table',icon:'school'},
@@ -58,14 +61,20 @@ export class MyApp {
   theme:any;
   
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public popoverCtrl: PopoverController) {
-    this.theme='green'
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public popoverCtrl: PopoverController,public modalCtrl: ModalController) {
+    this.theme='green';
   }
 
 
 
 openpage(inp:any,naam:string)
 {
+  if(naam=='About Us')
+  {
+    let modal = this.modalCtrl.create(AboutusPage);
+    modal.present();
+    return;
+  }
   this.nav.push(inp);
   this.presentpage=naam;
 }

@@ -21,7 +21,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { SubsPage } from '../pages/subscriptions/subs';
 import { AboutusPage } from '../pages/aboutus/aboutus';
 import { StudentModalPage } from '../pages/student_modal_page/student-modal-page';
-import { OrgIndPage } from '../pages/org_ind/org_ind'
+import { OrgIndPage } from '../pages/org_ind/org_ind';
+import { MessPage } from '../pages/mess/mess';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { OrgIndPage } from '../pages/org_ind/org_ind'
     AboutusPage,
     PopoverContentPage,
     StudentModalPage,
-    OrgIndPage 
+    OrgIndPage,
+    MessPage 
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,9 @@ import { OrgIndPage } from '../pages/org_ind/org_ind'
     AboutusPage,
     PopoverContentPage ,
     StudentModalPage,
-    OrgIndPage  
+    OrgIndPage,
+    MessPage
+
   ],
   providers: [
     StatusBar,
