@@ -9,56 +9,49 @@ import { Platform } from 'ionic-angular';
 })
 export class MessPage {
 
-messes:any[];
-random=[];
+messes=[];
+//mess=any[];
+content:any;
+arr=[];
 theme:any;
-foodtypes=['Breakfast','Lunch','Dinner'];
-Days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+url:string = 'https://students.iitm.ac.in/studentsapp/messmenu/get_messmenu.php';
+types=["SI1","SI2","NI1","NI2"];
+fullnames=["South Indian 1","South Indian 2","North Indian 1","North Indian 2"];
+order=[];
+
 
   constructor(platform: Platform,private http: Http) 
   {
     this.theme='green';
+    platform.ready().then(() => 
+    {
+/*
+    this.http.get(this.url+this.types[0]).subscribe(res =>
+    {
+        this.messes=res.json();
+    }
+      );
+  */  for(var c=0;c<4;c++)
+    {
+      const data1 = new FormData();
+      data1.append('menutype', this.types[c]);
+        this.http.post(this.url,data1).subscribe(res =>
+        {
+          //console.log(res);
+          this.content=res.json();
+          this.arr.push(this.content.map(i => i.menu.replace(/\n/g, "<br />")));
+            this.messes.push(this.content);
+            console.log(this.content);
+            for(var k=0;k<4;k++)
+            {
+            if(this.content[0].messtype==this.types[k])
+            {this.order.push(this.fullnames[k]);}
+            }
+        }
+        );
+    }
 
-  	this.messes=
-    [
-  	[	
-  		[
-  			['food1','food2','food3'],
-  			['food4','food5','food6'],
-  			['food7','food8','food9']
-  		],
-  		[
-  			['food1','food2','food3'],
-  			['food4','food5','food6'],
-  			['food7','food8','food9']
-  		],
-  		[
-  			['food1','food2','food3'],
-  			['food4','food5','food6'],
-  			['food7','food8','food9']
-  		]
-  	],
-    [  
-      [
-        ['food1','food2','food3'],
-        ['food4','food5','food6'],
-        ['food7','food8','food9']
-      ],
-      [
-        ['food1','food2','food3'],
-        ['food4','food5','food6'],
-        ['food7','food8','food9']
-      ],
-      [
-        ['food1','food2','food3'],
-        ['food4','food5','food6'],
-        ['food7','food8','food9']
-      ]
-    ]
-    ];
-
-    this.random=['Aqwe','Bggh','Chghg','Djgh'];
-
+    });
 
   }
 

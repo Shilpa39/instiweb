@@ -10,17 +10,15 @@
 
 <ion-slides>
   <ion-slide *ngFor='let mess of messes;let i = index;'>
-    <h2 text-center>Mess {{i+1}}</h2>
+    <h2 text-center style="position:sticky;">{{order[i]}}</h2>
       <br>
     <div *ngFor='let day of mess;let k=index;'>
-    <h3 text-center [ngStyle]="{'color':'white','background-color':theme}">
-    {{Days[k%7]}}</h3>
-      <div *ngFor='let food of day;let j=index'>
-      <h4>{{foodtypes[j%3]}}</h4>
-          <p text-center *ngFor="let item of food">
-          {{item}}
-          </p>
-          <hr style="border-width: 1px;" *ngIf="(j%3!=2)">
+    <h3 text-center [ngStyle]="{'color':'white','background-color':theme}" *ngIf="k%3==0">
+    <br>{{day.day}}<br><br></h3>
+      <div>
+      <h5 style="text-transform:capitalize;color:green;">{{day.menutype}}</h5>
+      <h4 text-center [innerHTML]=arr[i][k]></h4>    
+      <hr style="border-width: 1.5px;">
       </div>
     </div>
     <br><br>
