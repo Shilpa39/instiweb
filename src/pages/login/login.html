@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+
+<div style="margin-top:30%;">
+<h1 text-center [ngStyle]="{'color':theme}">Students' App</h1>
+<h2 text-center [ngStyle]="{'color':theme}">IIT Madras</h2>
+<div text-center>
+	<img src="../../assets/imgs/logo.png" width="15%" height="15%">
+</div>
+</div>
+
+<div>
+	<ion-grid>
+	<ion-row>
+		<ion-col><button ion-button clear [ngStyle]="{'color':theme}"><ion-icon name="logo-google"></ion-icon> SIGN IN</button></ion-col>
+		<ion-col><button ion-button clear (click)="ldap()" [ngStyle]="{'color':theme}"><ion-icon name="ios-log-in"></ion-icon> LDAP</button></ion-col>
+		<ion-col><button ion-button clear (click)="freshie()" [ngStyle]="{'color':theme}">FRESHIE</button></ion-col>
+	</ion-row>
+	</ion-grid>
+</div>
+<div *ngIf="if_ldap||if_freshie">
+	<ion-list>
+
+  <ion-item [ngStyle]="{'color':theme}">
+    <ion-label floating>RollNumber</ion-label>
+    <ion-input type="text" [(ngModel)]="RollNumber"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!if_freshie" [ngStyle]="{'color':theme}">
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="Password"></ion-input>
+  </ion-item>
+
+    </ion-list>
+    <button ion-button full round (click)="dologin()" [ngStyle]="{'color':'white','background-color':theme}">LOGIN</button>
+</div>
+<br>
+<p text-center style="color:red;">{{message}}</p>
+
+</ion-content>

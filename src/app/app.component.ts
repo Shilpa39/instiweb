@@ -7,6 +7,9 @@ import { PopoverController } from 'ionic-angular';
 import { PopoverContentPage } from '../app/popover';
 import { ModalController } from 'ionic-angular';
 
+import { LoginPage } from '../pages/login/login';
+import { PersonalInfoService } from '../services/personalinfo';
+
 import { NotifPage } from '../pages/notif/notif';
 import { OrgPage } from '../pages/organisations/org';
 import { StdsearchPage } from '../pages/stdsearch/stdsearch';
@@ -31,7 +34,6 @@ export class MyApp {
   pages=
   [
   {page:NotifPage,name:'Notifications',icon:'ios-notifications'},
-  //{page:OrgPage,name:'Organizations',icon:'people'},
   {page:StdsearchPage,name:'Student Search',icon:'search'},
   {page:MessPage,name:'Mess Menu',icon:'ios-restaurant'},
   {page:MapPage,name:'Insti Map',icon:'map'},
@@ -44,7 +46,6 @@ export class MyApp {
   options=
   [
   {page:ProfilePage,name:'Profile',icon:'person'},
-  //{page:SubsPage,name:'Subscriptions',icon:'paper'},
   {page:AboutusPage,name:'About Us',icon:'information-circle'}
   ];
 
@@ -55,17 +56,38 @@ export class MyApp {
   {page:SubsPage,name:'Subscriptions',icon:'paper'},
   ];
 
+  fullname:string='';
+  username:string='';
+
   @ViewChild('mycontent') nav: NavController;
 
-  presentpage='Notifications';
+  presentpage:any='Notifications';
+  content:any;
   theme:any;
+  loginStatus:boolean=false;
+  imageurl:string="../assets/imgs/logo.png";
+  url:string="https://photos.iitm.ac.in/byroll.php?roll=";
   
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public popoverCtrl: PopoverController,public modalCtrl: ModalController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public popoverCtrl: PopoverController,public modalCtrl: ModalController,public personalInfoService:PersonalInfoService) {
     this.theme='green';
+    if(personalInfoService.loginStatus==false)
+    {
+      let modal = modalCtrl.create(LoginPage);
+      modal.present();
+      return ;
+    }
   }
 
-
+loaddetails()
+{
+    if(this.personalInfoService.loginStatus)
+    {
+      this.imageurl=this.url+this.personalInfoService.personalInfo.result[0].username;
+      this.fullname=this.personalInfoService.personalInfo.result[0].fullname.toUpperCase();
+      this.username=this.personalInfoService.personalInfo.result[0].username;
+    }
+}
 
 openpage(inp:any,naam:string)
 {
@@ -88,5 +110,15 @@ openPopover(myEvent)
       ev: myEvent
     });
   }
+
+logout()
+{
+  console.log(this.personalInfoService.personalInfo);
+  this.personalInfoService.loginStatus=false;
+  this.personalInfoService.personalInfo={};
+  let modal = this.modalCtrl.create(LoginPage);
+      modal.present();
+      return ;
+}
 
 }

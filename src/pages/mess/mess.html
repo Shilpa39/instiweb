@@ -16,8 +16,11 @@
     <h3 text-center [ngStyle]="{'color':'white','background-color':theme}" *ngIf="k%3==0">
     <br>{{day.day}}<br><br></h3>
       <div>
-      <h5 style="text-transform:capitalize;color:green;">{{day.menutype}}</h5>
-      <h4 text-center [innerHTML]=arr[i][k]></h4>    
+      <h5 style="text-transform:capitalize;color:green;" [innerHTML]=day.menutype></h5>
+      <h4 text-center [innerHTML]=arr[i][k]></h4>
+        <!--<div>
+        <span style="float:right;"><button ion-button clear>Rate this Menu</button></span>
+      </div>-->   
       <hr style="border-width: 1.5px;">
       </div>
     </div>

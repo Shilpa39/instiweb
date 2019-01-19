@@ -11,12 +11,15 @@
 [ngStyle]="{'color':'white','background-color':theme}">
 <br>
 <div style="left:25%;" text-center>
-<img src="../../assets/imgs/logo.png" style="border-radius:50%;height:50%;width:50%;">
+<img [src]=imageURL style="border-radius:50%;height:50%;width:50%;">
 </div>
-<h1 text-center>Shilpa N</h1>
-<h2 text-center>EE16B039</h2>
+<h1 text-center>{{fullname}}</h1>
+<h2 text-center>{{username}}</h2>
 </div>
 <div style="height:40%;">
+<div>
+	<button ion-button [navPush]="pushPage">LOGIN</button>
+</div>
 <br>
 	<ion-grid>
 		<ion-row>
@@ -55,4 +58,5 @@
 		</ion-row>
 	</ion-grid>
 </div>
+
 </ion-content>
